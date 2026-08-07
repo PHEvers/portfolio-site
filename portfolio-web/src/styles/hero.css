@@ -1,0 +1,96 @@
+/* Container principal da Hero */
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+/* Espaçamento e alinhamento dos botões */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+/* Estilo base para os botões */
+.btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 200ms ease;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+
+/* Botão Primário */
+.btn-primary {
+  background-color: var(--primary);
+  color: #000000;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Botão Secundário */
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--text);
+  color: var(--text);
+}
+
+/* Estilo das saudações e títulos */
+.hero-greeting {
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px 0;
+}
+
+.hero-subtitle {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0 0 16px 0;
+}
+
+.hero-description {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Container Principal: Define como os elementos interagem */
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  
+  /* Ativando o Flexbox no container */
+  display: flex;
+  
+  /* Alinhando os elementos verticalmente no centro */
+  align-items: center; 
+  
+  /* Criando um espaço de 48px entre a imagem e o texto */
+  gap: 48px; 
+}
+
+/* Estilizando a imagem de perfil para ser redonda */
+.hero-image {
+  width: 320px;
+  height: auto; /* Definindo a mesma medida da largura */
+  object-fit: cover; /* Corta os excessos sem distorcer o seu rosto */
+  border-radius: 50%;
+  border: 4px solid var(--primary);
+}
