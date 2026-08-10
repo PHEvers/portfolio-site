@@ -1,0 +1,33 @@
+/* Container que centraliza a seção */
+.about-container {
+  max-width: 900px; /* Largura ideal para leitura de textos longos */
+  margin: 60px auto; /* Centraliza o bloco na horizontal */
+  padding: 0 24px;
+}
+
+.about-title {
+  font-size: 36px;
+  color: var(--text);
+  margin-bottom: 24px;
+  text-align: center; /* Centraliza o título */
+}
+
+/* Card visual com a paleta do Design System */
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px; /* Borda de 16px conforme o design-system.md */
+  padding: 32px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.about-card p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}

@@ -22,3 +22,29 @@ body {
   background: var(--background);
   color: var(--text);
 }
+
+/* Layout Global */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Faz a área do conteúdo ocupar todo o espaço restante à direita */
+.main-content {
+  flex: 1;
+  width: 100%;
+  margin-left: 50px; /* Cria o espaço necessário para a aba recolhida da navbar */
+}
+
+/* Transição suave para o conteúdo quando a navbar expandir */
+.main-content {
+  transition: filter 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+/* Quando passar o mouse na Navbar, escurece e desfoca o resto da página */
+.navbar:hover ~ .main-content {
+  filter: blur(4px) brightness(0.6);
+  pointer-events: none; /* Impede cliques no conteúdo enquanto o menu estiver aberto */
+}
+
+

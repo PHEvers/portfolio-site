@@ -1,0 +1,88 @@
+/* Container e Título */
+.experiences-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.experiences-title {
+  font-size: 36px;
+  margin-bottom: 32px;
+  color: var(--text);
+}
+
+/* Grid Organizador de Cards */
+.experiences-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Card Individual */
+.experience-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 20ms ease;
+}
+
+.experience-card:hover {
+  transform: scale(1.02);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Badges / Tags */
+.tag {
+  padding: 4px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tag.profissional {
+  background: rgba(250, 204, 21, 0.15);
+  color: var(--primary);
+}
+
+.tag.academico {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.period {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.card-title {
+  font-size: 22px;
+  margin: 0 0 4px 0;
+  color: var(--text);
+}
+
+.card-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 12px 0;
+  color: var(--text-secondary);
+}
+
+.card-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.experiences-title {
+  font-size: 36px;
+  color: var(--text);
+  margin-bottom: 24px;
+  text-align: center; /* Centraliza o título */
+}
