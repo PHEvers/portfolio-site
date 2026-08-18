@@ -1,88 +1,746 @@
-/* Container e Título */
+/* ========================================
+   EXPERIENCES
+   Seção "Minha Jornada"
+   ======================================== */
+
+
+/* ========================================
+   CONTAINER PRINCIPAL
+   ======================================== */
+
+/* Define a largura máxima e o espaçamento
+   externo da seção */
 .experiences-container {
+  width: 100%;
   max-width: 1200px;
+
   margin: 0 auto;
   padding: 60px 24px;
+
+  box-sizing: border-box;
 }
 
+
+/* ========================================
+   TÍTULO DA SEÇÃO
+   ======================================== */
+
+/* Centraliza o título "Minha Jornada" */
 .experiences-title {
   font-size: 36px;
-  margin-bottom: 32px;
   color: var(--text);
+
+  margin: 0 0 32px;
+
+  text-align: center;
 }
 
-/* Grid Organizador de Cards */
+
+/* ========================================
+   GRID DE EXPERIÊNCIAS
+   ======================================== */
+
+/* Organiza os cards automaticamente em
+   colunas conforme o tamanho da tela */
 .experiences-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+
   gap: 24px;
 }
 
-/* Card Individual */
+
+/* ========================================
+   CARD DE EXPERIÊNCIA
+   ======================================== */
+
+/* Card individual de cada experiência */
 .experience-card {
+  width: 100%;
+
+  display: block;
+
+  text-align: left;
+
+  /* Faz o botão utilizar a mesma fonte
+     do restante do site */
+  font-family: inherit;
+
   background: var(--surface);
+
   border: 1px solid var(--border);
   border-radius: 16px;
+
   padding: 24px;
-  transition: transform 20ms ease;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  /* Transições utilizadas nos efeitos
+     de interação */
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
 }
 
+
+/* Efeito visual ao passar o mouse */
 .experience-card:hover {
-  transform: scale(1.02);
+  transform: translateY(-4px);
+
+  border-color: var(--primary);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
+
+/* Remove o contorno padrão do navegador
+   quando o card recebe foco */
+.experience-card:focus {
+  outline: none;
+}
+
+
+/* Destaque para navegação pelo teclado */
+.experience-card:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+
+/* ========================================
+   CABEÇALHO DO CARD
+   ======================================== */
+
+/* Organiza a categoria e o período */
 .card-header {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+
+  gap: 12px;
+
   margin-bottom: 16px;
 }
 
-/* Badges / Tags */
+
+/* ========================================
+   TAGS
+   ======================================== */
+
+/* Estilo base das tags */
 .tag {
+  display: inline-block;
+
   padding: 4px 12px;
+
   border-radius: 10px;
+
   font-size: 14px;
   font-weight: 500;
+
+  white-space: nowrap;
 }
 
+
+/* Tag para experiências profissionais */
 .tag.profissional {
   background: rgba(250, 204, 21, 0.15);
+
   color: var(--primary);
 }
 
+
+/* Tag para experiências acadêmicas */
 .tag.academico {
   background: rgba(34, 197, 94, 0.15);
+
   color: var(--success);
 }
 
+
+/* ========================================
+   PERÍODO
+   ======================================== */
+
+/* Texto que mostra o período da experiência */
 .period {
   font-size: 14px;
+
   color: var(--text-secondary);
+
+  text-align: right;
 }
 
+
+/* ========================================
+   TEXTOS DOS CARDS
+   ======================================== */
+
+/* Nome da empresa ou instituição */
 .card-title {
   font-size: 22px;
-  margin: 0 0 4px 0;
+
+  margin: 0 0 4px;
+
   color: var(--text);
 }
 
+
+/* Cargo, função ou formação */
 .card-subtitle {
   font-size: 16px;
+
   font-weight: 400;
-  margin: 0 0 12px 0;
+
+  margin: 0 0 12px;
+
   color: var(--text-secondary);
 }
 
+
+/* Descrição resumida */
 .card-description {
   font-size: 14px;
+
   line-height: 1.5;
+
   color: var(--text-secondary);
+
   margin: 0;
 }
-.experiences-title {
-  font-size: 36px;
+
+
+/* ========================================
+   AÇÃO DO CARD
+   ======================================== */
+
+/* Texto que indica que o card pode
+   ser expandido */
+.card-action {
+  display: block;
+
+  margin-top: 20px;
+
+  color: var(--primary);
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  transition:
+    transform 200ms ease,
+    color 200ms ease;
+}
+
+
+/* Pequeno destaque ao passar o mouse
+   sobre o card */
+.experience-card:hover .card-action {
+  transform: translateX(4px);
+
+  color: var(--primary-hover);
+}
+
+
+/* ========================================
+   MODAL - FUNDO
+   ======================================== */
+
+/* Fundo escuro que cobre toda a tela */
+.experience-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  /* Desfoca levemente o conteúdo
+     atrás do modal */
+  backdrop-filter: blur(4px);
+}
+
+
+/* ========================================
+   MODAL - CARD CENTRAL
+   ======================================== */
+
+/* Card expandido que aparece no centro */
+.experience-modal {
+  position: relative;
+
+  width: 100%;
+
+  /* Modal um pouco maior para acomodar
+     as atividades e tecnologias */
+  max-width: 760px;
+
+  /* Impede que o modal ultrapasse
+     a altura da tela */
+  max-height: 85vh;
+
+  /* Cria rolagem caso o conteúdo
+     seja maior que o espaço disponível */
+  overflow-y: auto;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5);
+
+  /* Animação de entrada */
+  animation: modalAppear 200ms ease;
+}
+
+
+/* ========================================
+   ANIMAÇÃO DO MODAL
+   ======================================== */
+
+/* Faz o modal aparecer suavemente */
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* ========================================
+   BOTÃO FECHAR
+   ======================================== */
+
+/* Botão X no canto superior direito */
+.modal-close {
+  position: absolute;
+
+  top: 16px;
+  right: 20px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  font-family: inherit;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 200ms ease,
+    background-color 200ms ease;
+}
+
+
+/* Efeito do botão fechar */
+.modal-close:hover {
+  color: var(--primary);
+
+  background:
+    rgba(250, 204, 21, 0.1);
+}
+
+
+/* Acessibilidade para teclado */
+.modal-close:focus-visible {
+  outline: 2px solid var(--primary);
+
+  outline-offset: 2px;
+}
+
+
+/* ========================================
+   CABEÇALHO DO MODAL
+   ======================================== */
+
+/* Organiza a categoria e o período */
+.modal-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 20px;
+
+  padding-right: 40px;
+}
+
+
+/* ========================================
+   TÍTULO DO MODAL
+   ======================================== */
+
+/* Nome da empresa ou instituição */
+.modal-title {
+  font-size: 30px;
+
+  margin: 0 0 6px;
+
   color: var(--text);
-  margin-bottom: 24px;
-  text-align: center; /* Centraliza o título */
+}
+
+
+/* Cargo ou formação */
+.modal-subtitle {
+  font-size: 18px;
+
+  font-weight: 400;
+
+  margin: 0 0 24px;
+
+  color: var(--text-secondary);
+}
+
+
+/* ========================================
+   SEÇÕES DO MODAL
+   ======================================== */
+
+/* Espaçamento entre os blocos
+   de informação */
+.modal-section {
+  margin-top: 28px;
+}
+
+
+/* Título das seções */
+.modal-section h4 {
+  margin: 0 0 14px;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  color: var(--text);
+}
+
+
+/* ========================================
+   DESCRIÇÃO DETALHADA
+   ======================================== */
+
+/* Texto completo da experiência */
+.modal-details {
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: var(--text-secondary);
+
+  margin: 0;
+}
+
+
+/* ========================================
+   PRINCIPAIS ATIVIDADES
+   ======================================== */
+
+/* Lista das atividades */
+.activities-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin: 0;
+
+  padding-left: 20px;
+
+  color: var(--text-secondary);
+}
+
+
+/* Cada atividade */
+.activities-list li {
+  font-size: 15px;
+
+  line-height: 1.5;
+
+  padding-left: 4px;
+}
+
+
+/* Marcador da lista */
+.activities-list li::marker {
+  color: var(--primary);
+}
+
+
+/* ========================================
+   TECNOLOGIAS E COMPETÊNCIAS
+   ======================================== */
+
+/* Área das tecnologias */
+.modal-technologies {
+  margin-top: 28px;
+
+  padding-top: 24px;
+
+  border-top: 1px solid var(--border);
+}
+
+
+/* Título das tecnologias */
+.modal-technologies h4 {
+  margin: 0 0 14px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  color: var(--text);
+}
+
+
+/* Container das tags */
+.technology-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+
+/* Tag individual de tecnologia */
+.technology-tags span {
+  display: inline-block;
+
+  padding: 7px 12px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  background: var(--background);
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+
+  transition:
+    border-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+
+/* Efeito das tecnologias */
+.technology-tags span:hover {
+  border-color: var(--primary);
+
+  color: var(--primary);
+
+  transform: translateY(-2px);
+}
+
+
+/* ========================================
+   BARRA DE ROLAGEM DO MODAL
+   ======================================== */
+
+/* Largura da barra de rolagem */
+.experience-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+/* Fundo da barra */
+.experience-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+/* Parte móvel da barra */
+.experience-modal::-webkit-scrollbar-thumb {
+  background: var(--border);
+
+  border-radius: 10px;
+}
+
+
+/* Efeito ao passar o mouse na barra */
+.experience-modal::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+@media (max-width: 768px) {
+
+  /* Reduz o espaçamento da seção */
+  .experiences-container {
+    padding: 40px 20px;
+  }
+
+
+  /* Reduz o tamanho do título */
+  .experiences-title {
+    font-size: 30px;
+  }
+
+
+  /* Reduz o espaçamento entre os cards */
+  .experiences-grid {
+    gap: 16px;
+  }
+
+
+  /* Reduz o espaço interno dos cards */
+  .experience-card {
+    padding: 20px;
+  }
+
+
+  /* Modal ocupa melhor a tela */
+  .experience-modal-overlay {
+    padding: 16px;
+  }
+
+
+  /* Reduz o padding do modal */
+  .experience-modal {
+    max-height: 90vh;
+
+    padding: 32px 24px;
+
+    border-radius: 16px;
+  }
+
+
+  /* Reduz o título do modal */
+  .modal-title {
+    font-size: 26px;
+  }
+
+
+  /* Reduz o subtítulo */
+  .modal-subtitle {
+    font-size: 16px;
+  }
+
+
+  /* Reduz o tamanho do texto */
+  .modal-details {
+    font-size: 15px;
+  }
+
+
+  /* Reduz o tamanho das atividades */
+  .activities-list li {
+    font-size: 14px;
+  }
+}
+
+
+/* ========================================
+   TELAS MUITO PEQUENAS
+   ======================================== */
+
+@media (max-width: 480px) {
+
+  /* Reduz ainda mais o padding da seção */
+  .experiences-container {
+    padding: 32px 16px;
+  }
+
+
+  /* Permite que período e tag
+     se ajustem melhor */
+  .card-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  /* Alinha o período à esquerda */
+  .period {
+    text-align: left;
+  }
+
+
+  /* Modal mais compacto */
+  .experience-modal {
+    padding: 28px 20px;
+  }
+
+
+  /* Cabeçalho do modal */
+  .modal-header {
+    flex-wrap: wrap;
+
+    padding-right: 36px;
+  }
+
+
+  /* Título */
+  .modal-title {
+    font-size: 24px;
+  }
+
+
+  /* Botão fechar */
+  .modal-close {
+    top: 12px;
+    right: 12px;
+  }
 }

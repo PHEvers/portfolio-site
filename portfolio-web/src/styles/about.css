@@ -1,33 +1,155 @@
-/* Container que centraliza a seção */
+/* ========================================
+   CONTAINER PRINCIPAL
+   ======================================== */
+
+/* Define a largura máxima da seção e centraliza na página */
 .about-container {
-  max-width: 900px; /* Largura ideal para leitura de textos longos */
-  margin: 60px auto; /* Centraliza o bloco na horizontal */
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 60px auto;
   padding: 0 24px;
+
+  /* Garante que o padding não aumente a largura total */
+  box-sizing: border-box;
 }
 
+
+/* ========================================
+   TÍTULO DA SEÇÃO
+   ======================================== */
+
+/* Estilo e centralização do título "Sobre mim" */
 .about-title {
   font-size: 36px;
   color: var(--text);
-  margin-bottom: 24px;
-  text-align: center; /* Centraliza o título */
+
+  margin-bottom: 32px;
+
+  text-align: center;
 }
 
-/* Card visual com a paleta do Design System */
+
+/* ========================================
+   CARD SOBRE MIM
+   ======================================== */
+
+/* Card que contém o texto da seção */
 .about-card {
+  width: 100%;
+
+  /* Aparência do card */
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px; /* Borda de 16px conforme o design-system.md */
-  padding: 32px;
+  border-radius: 16px;
+
+  /* Espaçamento interno */
+  padding: 40px 48px;
+
+  /* Sombra suave */
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+
+  /* Evita que o padding aumente a largura do card */
+  box-sizing: border-box;
 }
 
+
+/* ========================================
+   TEXTOS
+   ======================================== */
+
+/* Estilo dos parágrafos dentro do card */
 .about-card p {
   font-size: 18px;
   line-height: 1.6;
+
   color: var(--text-secondary);
-  margin-bottom: 16px;
+
+  margin: 0 0 20px;
 }
 
-.about-card p:last-child {
+
+/* Remove a margem do último parágrafo */
+.about-card p:last-of-type {
   margin-bottom: 0;
+}
+
+
+/* ========================================
+   TAGS
+   ======================================== */
+
+/* Organiza as tags em linha e permite quebra automática */
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+
+/* Estilo individual de cada tag */
+.about-tags span {
+  display: inline-block;
+
+  padding: 8px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  background-color: var(--background);
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  /* Anima os efeitos de interação */
+  transition:
+    border-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+
+/* Destaca a tag quando o mouse passa sobre ela */
+.about-tags span:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+
+  transform: translateY(-2px);
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+   ======================================== */
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+
+  /* Reduz as margens da seção */
+  .about-container {
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  /* Reduz o tamanho do título */
+  .about-title {
+    font-size: 30px;
+  }
+
+  /* Reduz o espaçamento interno do card */
+  .about-card {
+    padding: 28px 24px;
+  }
+
+  /* Reduz o tamanho do texto */
+  .about-card p {
+    font-size: 16px;
+  }
 }

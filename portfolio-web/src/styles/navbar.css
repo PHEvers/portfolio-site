@@ -1,63 +1,94 @@
+/* Barra lateral fixa na esquerda */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 160px;
+
+  /* Cores e borda da barra */
   background: var(--surface);
   border-right: 1px solid var(--border);
+
+  /* Mantém a navbar acima dos outros elementos */
   z-index: 100;
 
-  /* Esconde o menu deslocando-o para a esquerda */
+  /* Esconde 120px, deixando 40px visíveis */
   transform: translateX(-120px);
-  
-  /* Transição suave de 200ms (conforme o design-system.md) */
+
+  /* Anima a abertura e fechamento */
   transition: transform 200ms ease-in-out;
 }
+
+/* Expande a navbar quando o mouse entra na área visível */
 .navbar:hover {
   transform: translateX(0);
 }
 
+
+/* Organiza o conteúdo da navbar em coluna */
 .navbar-container {
   display: flex;
   flex-direction: column;
+
+  /* Espaçamento interno */
   padding: 32px 24px;
+
+  /* Espaço entre os elementos */
   gap: 48px;
 }
 
+
+/* Remove margem padrão do logo */
 .logo {
   margin: 0;
+
+  /* Anima o aparecimento do logo */
+  transition: opacity 200ms ease-in-out;
 }
 
+
+/* Organiza os links verticalmente */
 .menu {
   display: flex;
   flex-direction: column;
+
+  /* Espaço entre os links */
   gap: 24px;
 }
 
+
+/* Estilo dos links do menu */
 .menu a {
   color: var(--text);
   text-decoration: none;
   font-weight: 500;
 
-  transition: color 200ms;
+  /* Permite aplicar transform no link */
+  display: inline-block;
+
+  /* Anima cor, tamanho e transparência */
+  transition:
+    color 200ms ease,
+    transform 100ms ease,
+    opacity 20ms ease;
 }
 
+
+/* Destaca o link quando o mouse passa sobre ele */
 .menu a:hover {
   color: var(--primary);
+
+  /* Aumenta levemente o link */
+  transform: scale(1.15);
 }
 
-/* Estilo base dos links da Sidebar */
-.menu a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-  display: inline-block; /* Necessário para que a propriedade transform funcione corretamente */
-  transition: transform 20ms ease, color 2ms ease; /* Animação suave de 200ms */
-}
 
-/* Efeito ao passar o mouse */
-.menu a:hover {
-  color: var(--primary);
-  transform: scale(1.15); /* Aumenta levemente o tamanho do texto */
+/* Quando a navbar está retraída, esconde os textos */
+.navbar:not(:hover) .menu a,
+.navbar:not(:hover) .logo {
+  opacity: 0;
+
+  /* Impede clicar nos elementos invisíveis */
+  pointer-events: none;
 }
