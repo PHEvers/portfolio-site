@@ -4,6 +4,7 @@ import { About } from "./sections/About";
 import { Experiences } from "./sections/Experiences";
 import { Contact } from "./sections/Contact";
 import { Skills } from "./sections/Skills";
+import { Projects } from "./sections/Projects";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <main className="main-content">
         <Hero />
         <About />
-        <Experiences />{/* 2. Adiciona a seção aqui */}
+        <Experiences />
+        <Projects />
         <Skills />
         <Contact />
       </main>

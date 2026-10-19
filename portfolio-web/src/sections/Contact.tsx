@@ -30,11 +30,11 @@ export function Contact() {
         </a>
 
         <a 
-          href="mailto:pedro.evers@gmail.com" 
+          href="mailto:pedroevers@gmail.com"
           className="contact-card"
         >
           <h3>E-mail</h3>
-          <p>pedro.evers@gmail.com</p>
+          <p>pedroevers@gmail.com</p>
         </a>
 
         <a 
